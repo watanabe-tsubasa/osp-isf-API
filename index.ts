@@ -1,6 +1,5 @@
 const baseUrl = 'https://api.sandbox.atmosphere.osp.tech';
 
-// 環境変数の存在を確認
 const apiKey = process.env.API_KEY;
 if (!apiKey) {
     throw new Error("API_KEY is not set");
