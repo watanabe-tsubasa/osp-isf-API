@@ -18,6 +18,11 @@ if (!requestId) {
 
 const res = await fetch(`${baseUrl}/v3/products`, {
   method: 'GET',
+  // body: JSON.stringify({
+  // title: 'foo',
+  // body: 'bar',
+  // userId: 1,
+  // }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
     'x-api-key': apiKey,
