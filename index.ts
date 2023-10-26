@@ -30,8 +30,17 @@ const res = await fetch(`${baseUrl}/v3/products`, {
   },
 });
 
-const json = await res.json();
 const header = res.headers;
 const status = res.status;
+const resType = header.get('content-type')
 
-console.log(json, header, status);
+if (resType === 'application/json') {
+  const json = await res.json();
+  console.log(json);
+} else if (resType === "text/plain; charset=utf-8") {
+  const text = await res.text();
+  console.log(text);
+}
+
+console.log(header, status);
+
