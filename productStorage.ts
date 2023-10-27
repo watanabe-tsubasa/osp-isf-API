@@ -1,7 +1,14 @@
-const subscriptionKey = process.env.AeonOcpApimSubscriptionKey || '';
-const siteId = process.env.SITE_ID || '';
+import { fetchOptions } from "./base_fetcher/baseFetchOptions";
+import { method, subscriptionKey } from "./env_vals/envVals";
 
-const baseUrl = 'https://apim2-dev-api.azure-api.net/payloads/v3/products';
+
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/products`;
+
+if (method !== 'GET') {
+  fetchOptions.body = JSON.stringify([{
+    from: '2021-12-01T00:00:00Z',
+  }]);
+}
 
 const res = await fetch(`${baseUrl}/14987072068943`, {
   method: process.env.METHOD ||'GET',

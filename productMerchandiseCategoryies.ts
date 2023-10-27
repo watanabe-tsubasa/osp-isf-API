@@ -1,15 +1,19 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { method, siteId } from "./env_vals/envVals";
+import { bannerId, method,  } from "./env_vals/envVals";
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/products/14987072068943/sites/${siteId}`;
+const productId = '14902888218856';
+
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/${bannerId}/products/${productId}/merchandise-category/`;
 
 if (method !== 'GET') {
-  fetchOptions.body = JSON.stringify([{
-    from: '2021-12-01T00:00:00Z',
-  }]);
+  fetchOptions.body = JSON.stringify({
+    title: 'foo',
+    body: 'bar',
+    userId: 1,
+  });
 }
 
-const res = await fetch(`${baseUrl}/`, fetchOptions);
+const res = await fetch(`${baseUrl}?retailerRegionId=default-region`, fetchOptions);
 
 const header = res.headers;
 const status = res.status;
@@ -24,3 +28,4 @@ if (resType === 'application/json') {
 }
 
 console.log(header, status);
+
