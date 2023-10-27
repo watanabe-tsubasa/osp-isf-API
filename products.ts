@@ -2,8 +2,8 @@ const baseUrl = 'https://apim2-dev-api.azure-api.net/payloads/v3/products';
 
 const subscriptionKey = process.env.AeonOcpApimSubscriptionKey || ''
 
-const res = await fetch(`${baseUrl}/`, {
-  method: 'GET',
+const res = await fetch(`${baseUrl}/14978123317035`, {
+  method: process.env.METHOD ||'GET',
   // body: JSON.stringify({
   // title: 'foo',
   // body: 'bar',

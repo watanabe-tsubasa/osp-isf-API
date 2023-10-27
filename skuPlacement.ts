@@ -1,14 +1,16 @@
+import { skuList } from "./skuList";
 const subscriptionKey = process.env.AeonOcpApimSubscriptionKey || '';
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v1/sites/ar-s0000031760/sku-placements`;
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v1/sites/ar-s0000031760/sku-placements/`;
 
 const res = await fetch(`${baseUrl}/`, {
-  method: 'GET',
-  // body: JSON.stringify({
-  // title: 'foo',
-  // body: 'bar',
-  // userId: 1,
-  // }),
+  method: process.env.METHOD ||'GET',
+  body: JSON.stringify([{
+    pickLocationId: 'testWatanabe',
+    priority: 1,
+    retailerSkuId: '14987072068943',
+    skuPlacementId: 'ISF14987072068943'
+  }]),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
     'Ocp-Apim-Subscription-Key': subscriptionKey,
