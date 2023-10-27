@@ -1,6 +1,6 @@
 const subscriptionKey = process.env.AeonOcpApimSubscriptionKey || '';
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/sites/ar-s0000031760/pick-locations`;
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/sites/ar-/pick-locations`;
 
 const res = await fetch(`${baseUrl}/testWatanabe`, {
   method: process.env.METHOD ||'GET',
