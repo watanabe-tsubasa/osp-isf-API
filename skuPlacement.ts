@@ -1,7 +1,8 @@
 import { skuList } from "./skuList";
 const subscriptionKey = process.env.AeonOcpApimSubscriptionKey || '';
+const siteId = process.env.SITE_ID || '';
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v1/sites/ar-s0000031760/sku-placements/`;
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v1/sites/${siteId}/sku-placements/`;
 
 const res = await fetch(`${baseUrl}/`, {
   method: process.env.METHOD ||'GET',

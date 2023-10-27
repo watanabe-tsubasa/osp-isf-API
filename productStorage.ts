@@ -1,4 +1,5 @@
-const subscriptionKey = process.env.AeonOcpApimSubscriptionKey || ''
+const subscriptionKey = process.env.AeonOcpApimSubscriptionKey || '';
+const siteId = process.env.SITE_ID || '';
 
 const baseUrl = 'https://apim2-dev-api.azure-api.net/payloads/v3/products';
 
