@@ -1,7 +1,9 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
 import { method, siteId } from "./env_vals/envVals";
+import { skuList } from "./skuList";
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/products/14987072068943/sites/${siteId}`;
+  
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v2/sites`;
 
 if (method !== 'GET') {
   fetchOptions.body = JSON.stringify([{
@@ -9,7 +11,7 @@ if (method !== 'GET') {
   }]);
 }
 
-const res = await fetch(`${baseUrl}/`, fetchOptions);
+const res = await fetch(`${baseUrl}`, fetchOptions);
 
 const header = res.headers;
 const status = res.status;
@@ -24,3 +26,5 @@ if (resType === 'application/json') {
 }
 
 console.log(header, status);
+
+

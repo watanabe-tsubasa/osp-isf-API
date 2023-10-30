@@ -2,20 +2,19 @@ import { fetchOptions } from "./base_fetcher/baseFetchOptions";
 import { method, siteId } from "./env_vals/envVals";
 import { skuList } from "./skuList";
 
-// const productId = '14987072068943';
+// const productId = '14901360348951'
 
 for (const productId of skuList) {
-
-  const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v5/skus/${productId}/sites/${siteId}`;
+  
+  const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/products/${productId}/sites/${siteId}`;
   
   if (method !== 'GET') {
-    fetchOptions.body = JSON.stringify({
-      placementPreferences: [],
-      receivableZones: ["AMBIENT_DECANT_ZONE","AMBIENT_INVENTORY_MANAGEMENT_ZONE"],
-    });
+    fetchOptions.body = JSON.stringify([{
+      from: '2021-12-01T00:00:00Z',
+    }]);
   }
   
-  const res = await fetch(`${baseUrl}?retailerRegionId=default-region`, fetchOptions);
+  const res = await fetch(`${baseUrl}/`, fetchOptions);
   
   const header = res.headers;
   const status = res.status;
@@ -30,5 +29,5 @@ for (const productId of skuList) {
   }
   
   console.log(header, status);
+}
 
-}  

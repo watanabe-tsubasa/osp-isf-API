@@ -1,17 +1,19 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { method, siteId } from "./env_vals/envVals";
+import { bannerId, method } from "./env_vals/envVals";
 import { skuList } from "./skuList";
 
-// const productId = '14987072068943';
+// const productId = '14901577075343';
 
-for (const productId of skuList) {
+for (const productId of skuList){
 
-  const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v5/skus/${productId}/sites/${siteId}`;
+  const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/${bannerId}/products/${productId}/price`;
+  //https://api.sandbox.atmosphere.osp.tech/v3/{retailerBannerId}/products/{retailerProductId}/price
   
   if (method !== 'GET') {
     fetchOptions.body = JSON.stringify({
-      placementPreferences: [],
-      receivableZones: ["AMBIENT_DECANT_ZONE","AMBIENT_INVENTORY_MANAGEMENT_ZONE"],
+      title: 'foo',
+      body: 'bar',
+      userId: 1,
     });
   }
   
@@ -32,3 +34,4 @@ for (const productId of skuList) {
   console.log(header, status);
 
 }  
+

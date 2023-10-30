@@ -3,7 +3,7 @@ import { method } from "./env_vals/envVals";
 
 const siteId = process.env.SITE_ID || '';
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v1/sites/${siteId}/sku-placements/`;
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v1/sites/${siteId}/sku-placements/ISF14901360348951`;
 
 if (method !== 'GET') {
   fetchOptions.body = JSON.stringify([{

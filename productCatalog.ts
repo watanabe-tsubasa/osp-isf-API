@@ -1,17 +1,17 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
 import { bannerId, method } from "./env_vals/envVals";
 
-const productId = '14902888218856';
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/${bannerId}/products/${productId}/merchandise-category/`;
+const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/${bannerId}/product-catalogs`;
+// https://api.sandbox.atmosphere.osp.tech/v3/{retailerBannerId}/product-catalogs
 
-if (method !== 'GET') {
-  fetchOptions.body = JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  });
-}
+// if (method !== 'GET') {
+//   fetchOptions.body = JSON.stringify({
+//     title: 'foo',
+//     body: 'bar',
+//     userId: 1,
+//   });
+// }
 
 const res = await fetch(`${baseUrl}?retailerRegionId=default-region`, fetchOptions);
 
