@@ -6,7 +6,7 @@ for(const productId of skuList){
 
   const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/products/${productId}`;
   
-  if (method !== 'GET') {/14987072068943
+  if (method !== 'GET') {
     fetchOptions.body = JSON.stringify([{
       from: '2021-12-01T00:00:00Z',
     }]);
