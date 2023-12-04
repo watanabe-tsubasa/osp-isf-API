@@ -1,17 +1,17 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
 import { bannerId, endPoint, method } from "./env_vals/envVals";
 
-const productId = '14901360354167';
 
-const baseUrl = `${endPoint}/v3/${bannerId}/product-categories/root`;
+const baseUrl = `${endPoint}/v3/${bannerId}/data-feeds`;
+// https://api.sandbox.atmosphere.osp.tech/v3/{retailerBannerId}/product-catalogs
 
-if (method !== 'GET') {
-  fetchOptions.body = JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  });
-}
+// if (method !== 'GET') {
+//   fetchOptions.body = JSON.stringify({
+//     title: 'foo',
+//     body: 'bar',
+//     userId: 1,
+//   });
+// }
 
 const res = await fetch(`${baseUrl}?retailerRegionId=default-region`, fetchOptions);
 

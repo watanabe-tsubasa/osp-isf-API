@@ -1,12 +1,12 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { method, siteId } from "./env_vals/envVals";
+import { endPoint, method, siteId } from "./env_vals/envVals";
 import { skuList } from "./skuList";
 
-// const productId = '14901360348951'
+// const productId = '10000045107891'
 
 for (const productId of skuList) {
   
-  const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/products/${productId}/sites/${siteId}`;
+  const baseUrl = `${endPoint}/v3/products/${productId}/sites/${siteId}`;
   
   if (method !== 'GET') {
     fetchOptions.body = JSON.stringify([{
@@ -19,7 +19,7 @@ for (const productId of skuList) {
   const header = res.headers;
   const status = res.status;
   const resType = header.get('content-type')
-  
+  console.log(productId);
   if (resType === 'application/json') {
     const json = await res.json();
     console.log(json);
@@ -28,6 +28,6 @@ for (const productId of skuList) {
     console.log(text);
   }
   
-  console.log(header, status);
+  // console.log(header, status);
 }
 

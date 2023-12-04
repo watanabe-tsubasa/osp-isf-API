@@ -1,12 +1,12 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { bannerId, method } from "./env_vals/envVals";
+import { bannerId, endPoint, method } from "./env_vals/envVals";
 import { skuList } from "./skuList";
 
 // const productId = '14987072068943';
 
 for (const productId of skuList) {
   
-  const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v4/${bannerId}/products/${productId}/propositions/`;
+  const baseUrl = `${endPoint}/v4/${bannerId}/products/${productId}/propositions/`;
   
   if (method !== 'GET') {
     fetchOptions.body = JSON.stringify({

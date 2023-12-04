@@ -1,9 +1,10 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { method } from "./env_vals/envVals";
+import { endPoint, method } from "./env_vals/envVals";
+import { skuList } from "./skuList";
 
 const siteId = process.env.SITE_ID || '';
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v1/sites/${siteId}/sku-placements/ISF14901360348951`;
+const baseUrl = `${endPoint}/v1/sites/${siteId}/sku-placements/`;
 
 if (method !== 'GET') {
   fetchOptions.body = JSON.stringify([{
@@ -27,6 +28,10 @@ if (resType === 'application/json') {
 } else if (resType === "text/plain; charset=utf-8") {
   const text = await res.text();
   console.log(text);
+  for (const productId of skuList) {
+    console.log(productId);
+    text.includes(productId) ? console.log('設定済み') : console.log('未設定');
+  }
 }
 
 console.log(header, status);

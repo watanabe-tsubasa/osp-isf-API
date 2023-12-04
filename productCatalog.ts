@@ -1,8 +1,8 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { bannerId, method } from "./env_vals/envVals";
+import { bannerId, endPoint, method } from "./env_vals/envVals";
 
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/${bannerId}/product-catalogs`;
+const baseUrl = `${endPoint}/v3/${bannerId}/product-catalogs`;
 // https://api.sandbox.atmosphere.osp.tech/v3/{retailerBannerId}/product-catalogs
 
 // if (method !== 'GET') {

@@ -1,10 +1,10 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { method, subscriptionKey } from "./env_vals/envVals";
+import { endPoint, method, subscriptionKey } from "./env_vals/envVals";
 import { skuList } from "./skuList";
 
 for(const productId of skuList){
 
-  const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/products/${productId}`;
+  const baseUrl = `${endPoint}/v3/products/${productId}`;
   
   if (method !== 'GET') {
     fetchOptions.body = JSON.stringify([{

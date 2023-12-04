@@ -1,9 +1,9 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { bannerId, method } from "./env_vals/envVals";
+import { bannerId, endPoint, method } from "./env_vals/envVals";
 
 const productId = '14902888218856';
 
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v3/${bannerId}/products/${productId}/merchandise-category/`;
+const baseUrl = `${endPoint}/v3/${bannerId}/products/${productId}/merchandise-category/`;
 
 if (method !== 'GET') {
   fetchOptions.body = JSON.stringify({

@@ -1,9 +1,9 @@
 import { fetchOptions } from "./base_fetcher/baseFetchOptions";
-import { method, siteId } from "./env_vals/envVals";
+import { endPoint, method, siteId } from "./env_vals/envVals";
 import { skuList } from "./skuList";
 
   
-const baseUrl = `https://apim2-dev-api.azure-api.net/payloads/v2/sites`;
+const baseUrl = `${endPoint}/v2/sites`;
 
 if (method !== 'GET') {
   fetchOptions.body = JSON.stringify([{
